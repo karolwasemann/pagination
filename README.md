@@ -16,4 +16,3 @@ Implement a simple pagination mechanism that will display 2 items from a list on
 
 - The "Previous" & "Next" buttons should turn off when we are on the first and last page of pagination respectively.
 
-Translated with www.DeepL.com/Translator (free version)
