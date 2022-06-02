@@ -42,7 +42,7 @@ const displayContact = (contacts, page, on_page) => {
 };
 
 pagination_element.addEventListener('click', (e) => {
-  console.log(e.target.value);
+  console.log(e.target);
 });
 
 displayContact(contact_list, current_page, contacts_on_page);
