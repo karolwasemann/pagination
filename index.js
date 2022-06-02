@@ -17,7 +17,8 @@ let current_page = 1;
 let contacts_on_page = 2;
 
 const displayContact = (contacts, page, on_page) => {
-  // list_element.innerHTML = '';
+  activeButtons();
+  list_element.innerHTML = '';
   page--;
   let loop_start = page * on_page;
   let contact_to_display = contacts.slice(loop_start, loop_start + on_page);
@@ -42,7 +43,36 @@ const displayContact = (contacts, page, on_page) => {
 };
 
 pagination_element.addEventListener('click', (e) => {
-  console.log(e.target);
+  const pageNumber = parseInt(e.target.closest('li').dataset.page);
+  activeButtons();
+  if (pageNumber === 0) {
+    current_page -= 1;
+  } else if (pageNumber === 5) {
+    current_page += 1;
+  } else {
+    current_page = pageNumber;
+  }
+  console.log(current_page);
+  displayContact(contact_list, current_page, contacts_on_page);
 });
+
+const activeButtons = () => {
+  const prevBtn = document.querySelector("[data-page='0']");
+  const nextBtn = document.querySelector("[data-page='5']");
+
+  if (current_page <= 1) {
+    current_page === 1;
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'block';
+  } else if (current_page === 2) {
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+  } else {
+    current_page === 3;
+    prevBtn.style.display = 'block';
+
+    nextBtn.style.display = 'none';
+  }
+};
 
 displayContact(contact_list, current_page, contacts_on_page);
